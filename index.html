@@ -1,34 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <title>Atester by zhangyutao</title>
 
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <title>Atester by zhangyutao</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-        <h1>Atester</h1>
-        <h2>QTP/UFT test, Maven Java project&#39;s JUnit test, execute test on local/remote Windows System.</h2>
-        <a href="https://github.com/zhangyutao/ATester" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Atester</h1>
+        <p class="header">QTP/UFT test, Maven Java project&#39;s JUnit test, execute test on local/remote Windows System.</p>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/zhangyutao/ATester/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/zhangyutao/ATester/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/zhangyutao/ATester">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/zhangyutao">zhangyutao</a></p>
+
+
+      </header>
+      <section>
+        <h3>
 <a id="welcome-to-atester-pages" class="anchor" href="#welcome-to-atester-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to ATester Pages.</h3>
 
 <p>ATester is a application that was developed for executing tests which could be a QTP/UFT Test/BPT or a JUnit Test.</p>
@@ -67,47 +69,79 @@ Project root folder: it means the root folder which contains all the folders of 
 download the folder "Application" and then double click the ATester.exe.</p>
 
 <p>How to use:
-A, the first way is to execute BPTs in local model which means ATester would use your local computer’s UFT to execute the BPTs which are stored in your local computer.
-B, the second way is to execute BPTs in remote model which means ATester would contact remote computers’ UFT to execute the remote computers’ BPTs.
-C, the third way is to execute BPTs in remote-host model which means ATester would contact remote computers’ UFT to execute the BPTs which are stored in one remote computer you designated.
-For starting using ATester, two things must be prepared. The first is that ensuring the BPTs are in a place which meets the ECS Automation Framework standard and that BPTs are ready to run. The second is that ensuring the network is available and the computer which operates ATester can communicate with the computers which execute BPTs if you want to execute BPTs in remote model.
-This section gives a detailed explanation about how to use ATester. 
+The ATester provides three ways of executing BPTs. 
+A, the first way is to execute BPTs in local model which means ATester would use your local computer’s UFT to execute the BPTs which are stored in your local computer.</p>
+
+<p>B, the second way is to execute BPTs in remote model which means ATester would contact remote computers’ UFT to execute the remote computers’ BPTs.</p>
+
+<p>C, the third way is to execute BPTs in remote-host model which means ATester would contact remote computers’ UFT to execute the BPTs which are stored in one remote computer you designated.</p>
+
+<p>For starting using ATester, two things must be prepared. The first is that ensuring the BPTs are in a place which meets the ECS Automation Framework standard and that BPTs are ready to run. The second is that ensuring the network is available and the computer which operates ATester can communicate with the computers which execute BPTs if you want to execute BPTs in remote model.</p>
+
+<p>This section gives a detailed explanation about how to use ATester. 
 Firstly, let’s know the UI of ATester.</p>
 
-<p>Look, there are features for choosing how to execute BPTs that is in the left side, filling where to save your report that is in the bottom, providing BPTs list for you to select that is in the right side and other small features.
-1.  Select BPT:
- “Test Mission list” is used to select BPT which you want to execute. The list provides a list of two types. You can use “SwitchTextBox” button the switch the type of the list. About the Edit box type of list, you can type any BPT into the list, but about the checkbox type of list, you just can select. The content of the list can be generated automatically by clicking “Refresh” button that requires you firstly to fill the path of upper folder of the folder which contains the BPTs like we use path “C:\upper folder” when the path is “C:\upper folder\folder\BPTname” in edit box “Dir”. For remote run model, the list can be generated only when you select checkbox “(Host model?)”
-2.  Local run model
-Select checkbox “Local Run Model” will enable local run model. To execute the BPT, the steps are that filling the edit box “Dir” with the path of upper folder of the folder which contains the BPTs   , clicking “Refresh”    button to generate the “Test Mission list”, select the BPTs you want to execute and then click the “Run”  button.
-3.  Remote run model
-A, tell ATester which remote computers are used to execute BPT.
+<p>Look, there are features for choosing how to execute BPTs that is in the left side, filling where to save your report that is in the bottom, providing BPTs list for you to select that is in the right side and other small features.</p>
+
+<ol>
+<li>
+<p>Select BPT:</p>
+
+<p>“Test Mission list” is used to select BPT which you want to execute. The list provides a list of two types. You can use “SwitchTextBox” button the switch the type of the list. About the Edit box type of list, you can type any BPT into the list, but about the checkbox type of list, you just can select. The content of the list can be generated automatically by clicking “Refresh” button that requires you firstly to fill the path of upper folder of the folder which contains the BPTs like we use path “C:\upper folder” when the path is “C:\upper folder\folder\BPTname” in edit box “Dir”. For remote run model, the list can be generated only when you select checkbox “(Host model?)”</p>
+</li>
+<li><p>Local run model</p></li>
+</ol>
+
+<p>Select checkbox “Local Run Model” will enable local run model. To execute the BPT, the steps are that filling the edit box “Dir” with the path of upper folder of the folder which contains the BPTs   , clicking “Refresh”    button to generate the “Test Mission list”, select the BPTs you want to execute and then click the “Run”  button.</p>
+
+<ol>
+<li> Remote run model</li>
+</ol>
+
+<p>A, tell ATester which remote computers are used to execute BPT.
 To designate the remote computers, you shall fill the edit box “Dirs” with the network paths which points to the upper folder of the folder which contains the BPTs of remote computers (the network paths format is <a href="https://github.com/path" class="user-mention">@path</a>@path if you have more remote computers).</p>
 
-<p>You can use “Check”   button to check if the network paths are available. 
-B, every remote computer must contain all BPTs that you want to execute.
-C, the value of “Allot Nr” field is to tell ATester to how many BPTs should be assigned to each remote computer one time. For example, if the value is 4, and there are 3 remote computers, the ATester will assign 4 BPTs to each remote computer that means 4x3 =12 BPTs are assigned one time.
-The value of “Timeout” field is to tell when ATester treats the remote computers are not available. When all the remote computers have disconnected for that value, the ATester would stop the execution.
-D, fill the BPT names you want to execute in “Test Mission List”.
-E, click “Run” button.
-F, ATester will contact remote computers you designated and call their UTF to execute the BPTs according to you BPTs’ name you provided. ATester would tell each remote computer which BPT name the remote computer should execute automatically and each remote computer would use BPTs which it has to execute. 
-4.  Remote-Host run model
-A, tell ATester which remote computer is the host. The host contains all code of BPT which would be used to execute.
+<p>You can use “Check”   button to check if the network paths are available. </p>
+
+<p>B, every remote computer must contain all BPTs that you want to execute.</p>
+
+<p>C, the value of “Allot Nr” field is to tell ATester to how many BPTs should be assigned to each remote computer one time. For example, if the value is 4, and there are 3 remote computers, the ATester will assign 4 BPTs to each remote computer that means 4x3 =12 BPTs are assigned one time.
+The value of “Timeout” field is to tell when ATester treats the remote computers are not available. When all the remote computers have disconnected for that value, the ATester would stop the execution.</p>
+
+<p>D, fill the BPT names you want to execute in “Test Mission List”.</p>
+
+<p>E, click “Run” button.</p>
+
+<p>F, ATester will contact remote computers you designated and call their UTF to execute the BPTs according to you BPTs’ name you provided. ATester would tell each remote computer which BPT name the remote computer should execute automatically and each remote computer would use BPTs which it has to execute. </p>
+
+<ol>
+<li> Remote-Host run model</li>
+</ol>
+
+<p>A, tell ATester which remote computer is the host. The host contains all code of BPT which would be used to execute.
 To designate the host, you shall fill the edit box “Dir” with the network paths which points to the upper folder of the folder which contains the BPTs of remote computer (It is only allowed one host, so there should be only one path).</p>
 
 <p>B, tell ATester which remote computers are used to execute BPT.
-To designate the remote computers, you shall fill the edit box “IPs” with the IP of remote computer (the format is <a href="https://github.com/IP" class="user-mention">@IP</a>@IP if you have more than one remote computer).
-C, you can use “Check”   button to check if the Host are available. (ATester won’t check the connection of value of “IPs” field but it will do some simple text check on that filed.)
-D, the value of “Allot Nr” field is to tell ATester to how many BPTs should be assigned to each remote computer one time. For example, if the value is 4, and there are 3 remote computers, the ATester will assign 4 BPTs to each remote computer that means 4x3 =12 BPTs are assigned one time.
-The value of “Timeout” field is to tell when ATester treats the remote computers are not available. When all the remote computers have disconnected for that value, the ATester would stop the execution.
-E, clicking “Refresh”    button to generate the “Test Mission list”, select the BPTs you want to execute
+To designate the remote computers, you shall fill the edit box “IPs” with the IP of remote computer (the format is <a href="https://github.com/IP" class="user-mention">@IP</a>@IP if you have more than one remote computer).</p>
+
+<p>C, you can use “Check”   button to check if the Host are available. (ATester won’t check the connection of value of “IPs” field but it will do some simple text check on that filed.)</p>
+
+<p>D, the value of “Allot Nr” field is to tell ATester to how many BPTs should be assigned to each remote computer one time. For example, if the value is 4, and there are 3 remote computers, the ATester will assign 4 BPTs to each remote computer that means 4x3 =12 BPTs are assigned one time.
+The value of “Timeout” field is to tell when ATester treats the remote computers are not available. When all the remote computers have disconnected for that value, the ATester would stop the execution.</p>
+
+<p>E, clicking “Refresh”    button to generate the “Test Mission list”, select the BPTs you want to execute
 Alternative, you can go into View and Assigning button to assign test for each slave.</p>
 
 <p>F, you can select a server for storing UFT’s detail result.</p>
 
-<p>G, click “Run” button.
-H, ATester will contact remote computers you designated and call their UTF to execute the BPTs according to you BPTs’ name you provided. ATester would tell each remote computer which BPT name the remote computer should execute automatically and each remote computer would use BPTs which “host” has to execute. 
-Before using Remote Run Model, there are two tools can help you managing and checking remote server.
-1.  Remote Desktop Manager</p>
+<p>G, click “Run” button.</p>
+
+<p>H, ATester will contact remote computers you designated and call their UTF to execute the BPTs according to you BPTs’ name you provided. ATester would tell each remote computer which BPT name the remote computer should execute automatically and each remote computer would use BPTs which “host” has to execute. 
+Before using Remote Run Model, there are two tools can help you managing and checking remote server.</p>
+
+<ol>
+<li> Remote Desktop Manager</li>
+</ol>
 
 <p>Click it, then you can start the tool. This tool can help you to log on vm and monitor them.</p>
 
@@ -118,18 +152,18 @@ Before using Remote Run Model, there are two tools can help you managing and che
 <p>This tool can help you to check if the UFT can be remotely connected and what status it is. (To void disturbing testing, when you already run a testing, the tool is disabled.)</p>
 
 <ol>
-<li> Other Features</li>
-<li> Excel format: it supports Excel 2010 and complicate other version. Checked it on then ATester will provide a report in excel format and put in the report folder which you set.</li>
-<li> SwichTextBox: it enable a textbox for you to write BPT/test name, one line one name, the ATester identify in that way.</li>
-<li> If run test, end and get the report, double click log line ATester will open that folder.</li>
-<li> Open library: open the "libraries" folder from "Project root folder's path used in local run" that you inputted.</li>
+<li><p>Other Features</p></li>
+<li><p>Excel format: it supports Excel 2010 and complicate other version. Checked it on then ATester will provide a report in excel format and put in the report folder which you set.</p></li>
+<li><p>SwichTextBox: it enable a textbox for you to write BPT/test name, one line one name, the ATester identify in that way.</p></li>
+<li><p>If run test, end and get the report, double click log line ATester will open that folder.</p></li>
+<li><p>Open library: open the "libraries" folder from "Project root folder's path used in local run" that you inputted.</p></li>
 <li><p>Import and export: they just support .txt file</p></li>
 <li><p>Important:</p></li>
-<li> Please use a resolution which is above 1024x768</li>
-<li> When ATester is running testing, please don't open the report files, because ATester is accessing them. If you want to watch, please copy a new file. </li>
-<li> When run in “Remote run model”, ATester won't check if the BPT in the Test Mission list is right, will execute them directly.</li>
-<li> Don't use the STOP or Close button frequently, suggest to run a whole round, because ATester is using API of UFT/QTP to run test, so close/kill the thread is not very safe for the tool, it may cause unexpected problem and make the ATester and UFT/QTP crash.</li>
-<li> During remote run, if a server or UFT is crashed or has problem, the BPTs which were assigned to it will be released out and let other server to run, however, ATester will keep connecting the fail server until the run is over or get timeout.</li>
+<li><p>Please use a resolution which is above 1024x768</p></li>
+<li><p>When ATester is running testing, please don't open the report files, because ATester is accessing them. If you want to watch, please copy a new file. </p></li>
+<li><p>When run in “Remote run model”, ATester won't check if the BPT in the Test Mission list is right, will execute them directly.</p></li>
+<li><p>Don't use the STOP or Close button frequently, suggest to run a whole round, because ATester is using API of UFT/QTP to run test, so close/kill the thread is not very safe for the tool, it may cause unexpected problem and make the ATester and UFT/QTP crash.</p></li>
+<li><p>During remote run, if a server or UFT is crashed or has problem, the BPTs which were assigned to it will be released out and let other server to run, however, ATester will keep connecting the fail server until the run is over or get timeout.</p></li>
 </ol>
 
 <h3>
@@ -141,25 +175,12 @@ Before using Remote Run Model, there are two tools can help you managing and che
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
 <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/zhangyutao/ATester/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/zhangyutao/ATester/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/zhangyutao/ATester"></a> is maintained by <a href="https://github.com/zhangyutao">zhangyutao</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
     </div>
-
-  
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>
