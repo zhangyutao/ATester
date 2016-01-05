@@ -1,0 +1,1 @@
+no any restriction except your project is a maven java project and the test class is a JUnit test class.
