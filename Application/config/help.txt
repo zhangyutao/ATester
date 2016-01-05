@@ -1,0 +1,5 @@
+1.	Please use a resolution which is above 1024x768
+2.	When ATester is runing testing, please don't open the report files, because ATester is accessing them. If you want to watch, please copy a new file. 
+3.	When run in ¡°Remote run model¡±, ATester won't check if the BPT in the To be run list is right, will execute them directly.
+4.	Don't use the STOP or Close button frequently, suggest to run a whole round, because ATester is using API of UFT/QTP to run test, so close/kill the thread is not very safe for the tool, it may cause unexpected problem and make the ATest and UFT/QTP crash.
+5.	During remote run, if a server or UFT is crashed or has problem, the BPTs which were assgined to it will be released out and let other server to run, however, ATester will keep connecting the fail server until the run is over or get timeout.

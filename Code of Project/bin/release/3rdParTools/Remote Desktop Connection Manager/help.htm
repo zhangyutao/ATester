@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Remote Desktop Connection Manager</title>
+		<meta http-equiv="Content-Language" content="en-us"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+		<style type="text/css">
+      body {font-family: Arial; background-color: #EEEEEE; }
+      h2 { border-top-style: solid; border-top-width:1px; padding-top: 12px; margin-bottom: -5px; }
+      h3 { font-style: italic; margin-bottom: -5px; }
+      div.detail ul { position: relative; top: -15px; margin-bottom:-15px; }
+      div.detail p, div.detail ul { position: relative; left: 15px;  }
+      .Q { font-style: italic; }
+      .A { list-style-type: none; }
+    </style>
+	</head>
+  <body>
+    <h1>RDCMan 2.2</h1>
+    <p>
+      RDCMan manages multiple remote desktop connections. It is useful for managing server labs
+      where you need regular access to each machine such as automated checkin systems and data
+      centers.
+    </p>
+    <p>
+      Servers are organized into named groups. You can connect or disconnect to all servers in a
+      group with a single command. You can view all the servers in a group as a set of thumbnails,
+      showing live action in each session. Servers can inherit their logon settings from the
+      group. Thus, when you change your lab account password, you only need to change the password
+      stored by RDCMan in one place.  By default passwords are stored securely by encrypting with
+      CryptProtectData using the (locally) logged on user's authority. Servers can be moved between
+      groups using drag-and-drop or via their properties page.
+    </p>
+    <p>
+      Non-Win7/Vista users will need to get version 6 of the Terminal Services Client. You can obtain this from the Microsoft Download Center:
+      <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=26f11f0c-0d18-4306-abcf-d4f18c8f5df9">XP</a>;
+      <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=CC148041-577F-4201-B62C-D71ADC98ADB1">Win2003</a>
+    </p>
+    <h2>Contents</h2>
+    <ul>
+      <li><a href="#Whats_New">What's New?</a>
+        <ul>
+          <li><a href="#wn2.2">2.2</a></li>
+          <li><a href="#wn2.0">2.0</a></li>
+          <li><a href="#wn1.6">1.6</a></li>
+          <li><a href="#wn1.42">1.42</a></li>
+          <li><a href="#wn1.4">1.4</a></li>
+          <li><a href="#wn1.3">1.3</a></li>
+          <li><a href="#wn1.22">1.22</a></li>
+          <li><a href="#wn1.21">1.21</a></li>
+          <li><a href="#wn1.2">1.2</a></li>
+          <li><a href="#wn1.1">1.1</a></li>
+          <li><a href="#wn1.0">1.0</a></li>
+          <li><a href="#wn0.5">0.5</a></li>
+        </ul>
+      </li>
+      <li><a href="#The_Display">The Display</a>
+        <ul>
+          <li><a href="#The_Menu">The Menu</a></li>
+          <li><a href="#The_Tree">The Tree</a></li>
+          <li><a href="#The_Client_Area">The Client Area</a></li>
+          <li><a href="#Full_Screen_Mode">Full Screen Mode</a></li>
+          <li><a href="#Shortcut_Keys">Shortcut Keys</a></li>
+        </ul>
+      </li>
+      <li><a href="#Server_Groups">Groups</a>
+        <ul>
+          <li><a href="#The_Connected_Virtual_Group">The Connected Virtual Group</a></li>
+          <li><a href="#The_Reconnect_Virtual_Group">The Reconnect Virtual Group</a></li>
+        </ul>
+      </li>
+      <li><a href="#Servers">Servers</a>
+        <ul>
+          <li><a href="#Adding_Servers_Manually">Adding Servers Manually</a></li>
+          <li><a href="#Importing_Servers_from_a_Text_File">Importing Servers from a Text File</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#Global_Options">Global Options</a>
+        <ul>
+          <li><a href="#Tree">Tree</a></li>
+          <li><a href="#Experience">Experience</a></li>
+          <li><a href="#Full_Screen">Full Screen</a></li>
+        </ul>
+      </li>
+      <li><a href="#Local_Options">Local Options</a>
+        <ul>
+          <li><a href="#Logon_Settings">Logon Settings</a></li>
+          <li><a href="#Remote_Desktop_Size">Remote Desktop Size</a></li>
+          <li><a href="#Local_Resources">Local Resources</a></li>
+          <li><a href="#File_Settings">File Settings</a></li>
+          <li><a href="#Group_Settings">Group Settings</a></li>
+          <li><a href="#Server_Settings">Server Settings</a></li>
+          <li><a href="#Display_Settings">Display Settings</a></li>
+        </ul>
+      </li>
+      <li><a href="#Command_Line">Command Line</a></li>
+      <li><a href="#Known_Bugs">Known Bugs</a></li>
+      <li><a href="#Non-Bugs">Non-Bugs</a></li>
+      <li><a href="#FAQ">FAQ</a></li>
+      <li><a href="#Acknowledgements">Acknowledgements</a></li>
+    </ul>
+    <h2 id="Whats_New">What's New?</h2>
+    <h3 id="wn2.2">2.2</h3>
+    <ul>
+        <li>Added log off option. This requires appropriate permissions to manage sessions on the remote server.</li>
+        <li>Added a feature to <a href="#List_Remote_Sessions">list remote sessions</a> and provide limited management of them.</li>
+        <li>Support for <a href="#Monitor_Spanning">monitor spanning</a> of full screen sessions.</li>
+        <li>Show the source of inheritance when "Inherit from parent" is checked.</li>
+        <li>Added connect to console setting to Connect As dialog.</li>
+        <li>Added audio quality and audio capture redirection settings (supported by 6.1 remote desktop).</li>
+        <li>Added "full screen" <a href="#Remote_Desktop_Size">remote desktop size</a> setting.</li>
+        <li>Global settings are now auto saved if needed (previously only the files were auto saved).</li>
+        <li>Name sorting is now similar to explorer where consecutive digits are treated as single numbers</li>
+        <li>Added comment field to servers and groups</li>
+        <li>Fixed redraw bugs when moving a server from one group to another.</li>
+        <li>Fixed bug where groups wouldn't always sort when making changes.</li>
+        <li>Fixed Connected group disconnect redraw bug.</li>
+        <li>Fixed bug where client size wasn't maintained when server tree visibility was changed.</li>
+        <li>Fixed a redraw bug involving "no effect" drag-and-drop.</li>
+        <li>Fixed a bug where password changes weren't always saved.</li>
+        <li>Fixed bug with not being able to exit if a document couldn't be saved during shutdown.</li>
+        <li>Fixed a bug where files were not being auto saved when the auto save option was selected.</li>
+        <li>Fixed remote desktop size bug for undocked servers.</li>
+        <li>Added logic to not restore the saved window position if the window would not be visible, e.g. if a display is disconnected.</li>
+        <li>Added a warning when attempting to add a server to a file without first adding a group.</li>
+    </ul>
+    <h3 id="wn2.0">2.0</h3>
+    <ul>
+      <li>RDCMan can now load multiple <a href="#Files">files</a>.</li>
+      <li>The group/server editing commands have moved from the File menu to a new <a href="#The_Menu">Edit</a> menu.</li>
+      <li>The remote session-related commands have moved from the File menu to a new <a href="#The_Menu">Session</a> menu.</li>
+      <li>
+        There is now a <a href="#Default_settings">root level</a> for setting inheritance. This is accessible from the <a href="#Global_Options">Global Options</a> dialog.
+      </li>
+      <li>Passwords can be stored as clear text.</li>
+      <li>Added font smoothing, desktop composition options to the Experience settings.</li>
+      <li>Server sessions can be undocked into their own window.</li>
+      <li>The server tree can be located on the left or right side of the window.</li>
+      <li>Split Logon Settings into Logon Credentials (user name, password, domain) and Connection Settings (the rest).</li>
+      <li>Added 16 x 10 resolutions and 16 x 10 button to the custom size dialog.</li>
+      <li>Added some disconnection error reporting to assist in diagnosing why a connection failed.</li>
+      <li>Added <a href="#Command_line">command line switches</a>.</li>
+      <li>Fixed a bug where right clicking server tree in the empty space below servers caused an exception.</li>
+      <li>Fixed a bug involving resizing the client area and not being able to click the server's taskbar.</li>
+      <li>Added diagnostics for server connection errors (e.g. illegal server name).</li>
+      <li>Changed from registry settings to proper .Net settings file.</li>
+      <li>Fixed a problem with menu shortcut keys not working until menu is explicitly rendered</li>
+      <li>Fixed truncated text in the properties dialog</li>
+      <li>Fixed the Windows 7 start menu icon</li>
+      <li>Fixed a bug with SaveAs</li>
+    </ul>
+    <h3 id="wn1.6">1.6</h3>
+    <ul>
+      <li>Added <a href="#Gateway_Settings">Gateway Server</a> support.</li>
+      <li>Vista connect-as-admin (/admin) support.</li>
+      <li>
+        Added the thumbnail scale setting to the group <a href="#Display_Settings">Display_Settings</a>.
+        (This was previously for individual servers only.)
+      </li>
+      <li>User name format of <i>domain\user</i> is supported.</li>
+      <li>Support for Network Level Authentication.</li>
+      <li>
+        Added the <a href="#Connect_As">Connect As</a> feature to allow override of stored logon settings for a
+        particular session.
+      </li>
+      <li>
+        The remote desktop activeX controls are now created lazily and destroyed when no longer needed.
+        This should keep the memory footprint down for large groups and improves start-up time.
+      </li>
+      <li>Made some performance improvements to the server layout. Large groups should not result in large slowdowns.</li>
+      <li>
+        Added an option to give <a href="#Focus_on_click">focus to a server after selecting it</a> from the server tree with the mouse.
+      </li>
+      <li>The Server Tree now supports auto-hide.</li>
+      <li>Fixed the (full screen) UI connection bar buttons to work as expected (e.g. minimize button minimizes RDCMan).</li>
+      <li>Added an option to set the default <a href="#Connection_bar">UI connection bar state</a>.</li>
+      <li>
+        Added an option to set the full-screen window as <a href="#Topmost">top-most</a>.
+      </li>
+      <li>Added redirect clipboard option.</li>
+      <li>98% sure the click-drag/drag-and-drop problem is fixed.</li>
+      <li>Fixed a bug where expanding and collapsing a group caused that group to be selected.</li>
+      <li>Fixed a bug that caused groups to be saved inappropriately when opening a new groups file.</li>
+      <li>Added an option to <a href="#Autosave">automatically save</a> the groups file.</li>
+      <li>If an error occurs while saving the groups file, the error will be reported and the Save As dialog opened.</li>
+      <li>.rdg XML schema changed but is automagically upgraded.</li>
+      <li>Added sorting of groups.</li>
+      <li>Fix for location of full screen client on multi-monitor setups. </li>
+    </ul>
+    <h3 id="wn1.42">1.42</h3>
+    <ul>
+      <li>Added Windows Vista support (separate version due to MSTSC ActiveX control change).</li>
+      <li>Fixed size selection bug where 1280 x 1024 was changed to 1280 x 960.</li>
+      <li>
+        The Connected and Reconnect virtual groups were not always added to Remote Desktops menu, nor were their menu
+        items updated in a timely fashion.
+      </li>
+      <li>
+        The <a href="#The_Menu">Remote Desktops menu</a>was not previously documented.
+      </li>
+      <li>Dialog box items now take focus when dialog brought up.</li>
+      <li>
+        Domain=&quot;[server]&quot; means use the server name for the domain name.
+      </li>
+      <li>Added a logon option to run a program upon connection.</li>
+    </ul>
+    <h3 id="wn1.4">1.4</h3>
+    <ul>
+      <li>Added ability to toggle display of server tree.</li>
+      <li>
+        Servers can now be imported from a text file (see <a href="#Importing_Servers_from_a_Text_File">
+          Importing_Servers_from_a_Text_File
+        </a>).
+      </li>
+      <li>Added color depth option.</li>
+      <li>Removing the Reconnect virtual group now gives the option to remove all of its server references.</li>
+      <li>Fixed ranged server UI bug that prevented numbers greater than 100.</li>
+      <li>Added warning if enter a range containing more than 100 servers.</li>
+      <li>Fixed UI bug where servers would continue to be displayed after disconnect when &quot;show disconnected thumbnails&quot; was not enabled.</li>
+      <li>Fixed full screen bug when RDCMan is on a non-primary monitor of a multimon machine.</li>
+    </ul>
+    <h3 id="wn1.3">1.3</h3>
+    <ul>
+      <li>Disallow spaces and slashes in server names.</li>
+      <li>
+        Moved <a href="#Remote_Desktop_Size">Remote Desktop Size</a> option from global to per group/server.
+      </li>
+      <li>
+        Added <a href="#Local_Resources">Local Resources</a> options for redirecting sound, Windows key combos, drives, etc.
+      </li>
+      <li>
+        Added <a href="#Experience">Experience</a> global options for adjusting the use of Windows UI features for the bandwidth available.
+      </li>
+      <li>.rdg XML schema changed but is automagically upgraded.</li>
+      <li>Expanded the content in this help file (a little).</li>
+      <li>Fixed problem with numeric keypad not working for numeric input in options dialogs.</li>
+    </ul>
+    <h3 id="wn1.22">1.22</h3>
+    <ul>
+      <li>Fixed group name path separator bug (disallow "." in group names).</li>
+      <li>Closing RDCMan when the window was minimized prevented "normal" display. Fixed.</li>
+    </ul>
+    <h3 id="wn1.21">1.21</h3>
+    <ul>
+      <li>
+        Fixed <a href="#Full_Screen_Mode">Full Screen Mode</a> disconnect bug.
+      </li>
+      <li>
+        Added <a href="#The_Reconnect_Virtual_Group">Reconnect virtual group</a> to options dialog.
+      </li>
+    </ul>
+    <h3 id="wn1.2">1.2</h3>
+    <ul>
+      <li>
+        Added <a href="#The_Reconnect_Virtual_Group">Reconnect virtual group</a>.
+      </li>
+      <li>
+        Added better support for <a href="#Full_Screen_Mode">full screen mode</a>.
+      </li>
+      <li>Fixed suspected thumbnail redraw bug when dealing with large groups (&gt;100 servers).</li>
+    </ul>
+    <h3 id="wn1.1">1.1</h3>
+    <ul>
+      <li>Added "show live thumbnails" group setting. When this is toggled off, the group view won't show the actual server windows in the
+        thumbnail display. Instead there will be a white box with the connection status.</li>
+      <li>Added server port option which specifies the connection port. The default is 3389.</li>
+      <li>Fixed a bug that caused the file specified on the command line (via shell open, e.g.) to be ignored.</li>
+      <li>Fixed a UTF8 encoding bug.</li>
+      <li>Fixed thumbnail panel scrollbar redraw bug.</li>
+      <li>Changed server thumbnail text to "Connecting" and "Disconnected" without the server name.</li>
+    </ul>
+    <h3 id="wn1.0">1.0 (first complete release)</h3>
+    <ul>
+      <li>Added group nesting.</li>
+      <li>
+        Added <a href="#The_Connected_Virtual_Group">Connected virtual group</a>.
+      </li>
+      <li>Added View.Options (and all that comes with it).</li>
+    </ul>
+    <h3 id="wn0.5">0.5 (first release)</h3>
+    <ul>
+      <li>Everything is new.</li>
+    </ul>
+    <h2 id="The_Display">The Display</h2>
+    <p>The Remote Desktop Connection Manager display consists of the menu, a tree with groups of servers, a splitter bar, and a client area.</p>
+    <div class="detail">
+      <h3 id="The_Menu">The Menu</h3>
+      <p>There are several top-level menus in RDCMan:</p>
+      <ul>
+        <li>
+          <b>File</b> - load, save, and close RDCMan file groups
+        </li>
+        <li>
+          <b>Edit</b> - add, remove, and edit the properties of servers and groups
+        </li>
+        <li>
+          <b>Session</b> - connect, disconnect and log off sessions
+        </li>
+        <li>
+          <b>Remote Desktops</b> - allows access to the groups and servers in a hierarchical
+          fashion, similar to the server tree; primarily useful when the
+          Server Tree is hidden
+        </li>
+        <li>
+          <b>Tools</b> - change application properties
+        </li>
+      </ul>
+      <h3 id="The_Tree">The Tree</h3>
+      <p>
+        Most work, such as adding, removing, and editing servers and
+        groups, can be accomplished via right-clicking on a tree node. Servers
+        and groups can be moved using drag-and-drop.
+      </p>
+      <p>
+        Keyboard shortcuts:
+      </p>
+      <ul>
+        <li>Enter: Connect to selected server.</li>
+        <li>
+          Shift+Enter: Connect to the selected server using the <a href="#Connect_As">Connect As</a> feature.
+        </li>
+        <li>Delete: Remove selected server or group.</li>
+        <li>Alt+Enter: Open properties dialog for selected server or group.</li>
+        <li>Tab: If a connected server is selected, give it focus.</li>
+      </ul>
+      <p>
+        Use the View.Server tree location menu option to locate the tree at the left or right edge of the window.
+      </p>
+      <p>
+        The server tree can be docked, auto-hidden, or always hidden via the View.Server tree
+        visibility menu option. When the server tree is not displayed, servers can still be accessed
+        through the Remote Desktops menu. When the tree is auto-hidden, the splitter bar remains
+        visible at the left side of the window. Hovering over it will bring the server tree back
+        into view.
+      </p>
+      <h3 id="The_Client_Area">The Client Area</h3>
+      <p>
+        The client area display depends on the node selected in the tree. If a server is selected,
+        the client area shows the remote desktop client for that server. If a group is selected, the
+        client area shows a thumbnail of the servers within that group. The size of the client area
+        can be specified via the View menu, as well as resizing the RDCMan window.
+      </p>
+      <p>
+        <b>
+          <span style="color: red;">
+            Caution: Connected servers can receive focus from keyboard navigation of the thumbnail view. It is not always obvious which
+            server has focus, so be careful. Eventually this will be better controlled by the UI.
+          </span>
+        </b>
+      </p>
+      <h3 id="Full_Screen_Mode">Full Screen Mode</h3>
+      <p>
+        To work with a server in full screen mode, select the server to give it focus and press Ctrl+Alt+Break. To leave
+        full screen mode, press Ctrl+Alt+Break again or use the minimize/restore buttons in the connection title bar. Multiple monitors can be spanned
+        if enabled by the <a href="#Monitor_Spanning">monitor spanning</a> option.
+      </p>
+      <h3 id="Shortcut_Keys">Shortcut Keys</h3>
+      <p>You can find the full list of Terminal Services shortcut keys <a href="http://msdn.microsoft.com/en-us/library/aa383500(VS.85).aspx">here</a>.</p>
+    </div>
+    <h2 id="Files">Files</h2>
+    <p>
+      The top-level unit of organization in RDCMan is a remote desktop file group. File groups are collections of <a href="#Groups">groups</a> and/or <a href="#Servers">servers</a> that are stored
+      in a single physical file. Servers can't live outside of a group and groups can't live outside of a file.
+    </p>
+    <p>
+      A file has all the characteristics of a server group other than being able to change its parent.
+      </p>
+      <h2 id="Groups">Groups</h2>
+    <p>
+      A group contains a list of servers and configuration information such as logon credentials. Configuration settings can be inherited from another group or the application <a href="#Default_settings">defaults</a>.
+      All the servers in a group can be connected or disconnected at
+      once. Groups can be nested but are homogenous: a group may either contain groups or servers, but not both.
+    </p>
+    <p>
+      When a group is selected in the tree view, all the servers underneath it are displayed in a
+      thumbnail view. Thumbnail view properties can be adjusted via the View menu. The thumbnails
+      can show the actual server windows or simply the connection status. See
+      <a href="#Display_Settings">Display Settings</a> for more information on thumbnail display
+      customization.
+    </p>
+    <div class="detail">
+      <h3 id="The_Connected_Virtual_Group">The Connected Virtual Group</h3>
+      <p>
+        When a server is in the connected state, it is automatically
+        added the to Connected virtual group. Servers cannot be explicitly added
+        or removed from the Connected group, nor can the Connected group be
+        moved.
+      </p>
+      <p>The Connected group can be toggled on/off via the View menu.</p>
+      <h3 id="The_Reconnect_Virtual_Group">The Reconnect Virtual Group</h3>
+      <p>
+        There are sometimes situations where a server disconnects and will be intentionally offline
+        for an unspecified length of time, e.g. when rebooting after an OS update. When this is the
+        case, drag the server in question to the Reconnect group. RDCMan will continually attempt to
+        connect to the server until it is successful. Note that this feature is still very much
+        under development.
+      </p>
+      <p>The Reconnect group can be toggled on/off via the View menu.</p>
+    </div>
+    <h2 id="Servers">Servers</h2>
+    <p>
+      A server has a server name (the computer's network name or IP
+      address), a display name, and logon information. The logon information may be inherited from another group.
+    </p>
+    <div class="detail">
+      <h3 id="Adding_Servers_Manually">Adding Servers Manually</h3>
+      <p>
+        Servers following a simple numerically increasing naming pattern
+        can be bulk added to a group. This is done by putting '#' characters in
+        the server name and setting the numeric range. E.g. entering "server##" as the name and using the range 1 to 10 would add server01, server02, ..., server10. Range bounds from 0 to 999999999 are supported.
+      </p>
+      <h3 id="Importing_Servers_from_a_Text_File">
+        Importing Servers from a Text File
+      </h3>
+      <p><b><span style="color: red;">Note: This feature is deprecated and will be removed in a future release.
+          Instead of importing servers, you should create a new .rdg file. The format is
+          fairly easy to decipher and will probably be documented someday.</span></b></p>
+      <p>
+        Servers can also be imported into a group from a text file. The file
+        format is simply one server name per line:
+      </p>
+      <dl>
+        <dd>Server1</dd>
+        <dd>SecondServer</dd>
+        <dd>YANS</dd>
+      </dl>
+      <p>
+        All servers are imported into the same group with the same
+        preferences. If a server is imported that has the same name as an
+        existing server, the existing server's preferences are updated to the
+        new ones.
+      </p>
+    </div>
+    <h2 id="Global_Options">Global Options</h2>
+    <p>
+      The Tool.Options menu item brings up the Options Dialog. Global
+      settings, e.g. the client area size, are modifiable from here.
+      Most server-related options, e.g. on the experience page, will not take effect until the next time that server is connected.
+    </p>
+    <div class="detail">
+      <h3 id="Tree">Tree</h3>
+      <p>
+        <a id="Focus_on_click">
+          When selecting a node in the server tree control with a mouse click, the default
+          behavior is to keep focus on the tree control. There is an option to change this
+          to focus on the selected server.
+        </a>
+      </p>
+      <p>
+        <a id="Autosave">
+          You can have RDCMan periodically save the groups file automatically. Check the auto-save
+          check box and specify the interval (in minutes) for saving the file. An interval
+          of 0 will not save the file periodically but will the save prompt when exiting RDCMan.
+        </a>
+      </p>
+      <p id="Default_settings">
+        There is a button for <i>Default group settings</i>. Clicking it brings up a dialog to configure the base level of settings for the inheritance hierarchy. I.e. if a File group
+        is set to inherit from its parent, this is where the settings come from.
+      </p>
+      <h3 id="Experience">Experience</h3>
+      <p>Depending on the bandwidth available from your machine, you will want to limit Windows
+        UI features to improve performance. The connection speed drop down can be used to set all
+        options together, or they can be individually customized. The features are: desktop
+        backgrounds, showing full window contents when dragging, menu and window animation, and
+        windows themes.
+      </p>
+      <h3 id="Full_Screen">Full Screen</h3>
+      <p>
+        <a id="Connection_bar">
+          When a server is displayed in full-screen mode, the remote desktop activeX control
+          provides a UI connection bar at the top of the window. This bar can be toggled on and
+          off. When it is on, you can choose to have it pinned or auto-hidden.
+        </a>
+      </p>
+      <p>
+        <a id="Topmost">When RDCMan is displaying a server in full-screen mode, you can choose to have the window always displayed as the top-most window.</a>
+      </p>
+      <p id="Monitor_Spanning">
+        By default, a full screen session is restricted to the monitor containing the server
+        window. You can enable multiple monitor spanning in the full screen options. If the remote
+        desktop is larger than window's monitor, it will span as many monitors as needed to fit the
+        remote session.  Note that only rectangular areas are used, so if you have two monitors with
+        differing vertical resolutions, the shorter of the two is used.  Also, there is a hard limit
+        of 4096x2048 for the remote desktop control.
+      </p>
+    </div>
+    <h2 id="Local_Options">Local Options</h2>
+    <p>
+      Groups and Servers have a number of tabbed property pages with various customization
+      options. Many of these pages are common to groups and servers. When the &quot;Inherit from
+      parent&quot; check box is checked, the settings that follow are inherited from the parent
+      container. Most server-related changes, e.g. remote desktop size, will not take effect until
+      the next time that server is connected.
+    </p>
+    <div class="detail">
+      <h3 id="Logon_Settings">Logon Credentials</h3>
+      <p>
+        The Logon Credentials property page contains options pertaining to
+        remote login. The user name, password, and domain are set on this page. The domain and user name can be specified together by
+        using the <i>domain\user</i> format.
+        When logging in to a machine &quot;domain&quot; rather than a Windows domain, you
+        can specify [server]. This will be substituted with the machine name at
+        logon time. It is useful when you have a group of machines which require
+        logging in as administrator.
+        <span id="Connect_As">
+          The Logon Settings entered in the properties pages are used by default for new connections.
+          If you want to temporarily customize these settings for a new connection, connect
+          using the Connect As menu item.
+        </span>
+      </p>
+      <h3 id="Connection_Settings">Connection Settings</h3>
+      <p>The Connection Settings tab includes settings to customize how a session is connected and what happens upon logon.</p>
+      <p>You can specify whether the console session should be connected to as well as the remote desktop connection port.</p>
+      <p>
+        There are also settings that allow you to run a program upon connection. Enter the program
+        name and, optionally, the working directory for that program. Note that these only have an
+        effect if you are connecting to the console session for the first time. That is,
+        reconnecting to a session or connecting to a session other than the console session will not
+        run the program. At least, this is how Terminal Services appears to work based on empirical
+        observation.
+      </p>
+      <h3 id="Gateway_Settings">Gateway Settings</h3>
+      <p>
+        The Gateway Settings property page has options for using a TS Gateway Server. The Gateway
+        name, authentication method, and local address bypass options are on this page. Users of
+        Vista SP1 and Longhorn server will have additional options regarding logon credentials:
+      </p>
+      <ul>
+        <li>Explicit entry of Gateway user name and password</li>
+        <li>Ability to share the Gateway credentials with the remote server</li>
+      </ul>
+      <h3 id="Remote_Desktop_Size">Remote Desktop Size</h3>
+      <p>
+        The size of the remote desktop is specified on this page. This is the
+        logical desktop size, not the physical client view of it. For example,
+        if the remote desktop size is 1280 x 1024 and client size is 1024 x 768,
+        you would see a 1024 x 768 view of the remote desktop with scroll bars. If the client
+        size were 1600 x 1200, the entire remote desktop would be visible, offset
+        by a gray border.
+      </p>
+      <p>Specifying "Same as client area" will make the remote desktop the same size as the RDCMan client panel, i.e. the RDCMan window client area
+      excluding the server tree. Specifying "Full screen" will make the remote desktop the same size as the screen that the server is viewed on.
+      Note that the remote desktop size is determined upon connecting to a server. Changing this setting for a connected server will have no effect.</p>
+      <p>
+        The maximum size of the remote desktop is determined by the version of the remote desktop
+        activeX control. Version 5 (pre-Vista) had a maximum of 1600 x 1200; Version 6 (Vista) has a
+        maximum of 4096 x 2048. This limit is enforced at connection time, not during data
+        entry. This is in case the same RDCMan file is shared by multiple computers.
+      </p>
+      <h3 id="Local_Resources">Local Resources</h3>
+      <p>
+        Various resources of the remote server may be delivered to the client. The remote computer
+        sound can be played locally, played remotely, or disabled entirely. Windows key combinations
+        (for example, those involving the actual Windows key as well as other specials like Alt+Tab)
+        can be applied always to the client machine, always to the remote machine, or to the client
+        when windowed and the remote machine when in full screen mode. Client drive, port, printer,
+        smart card, and clipboard resources can be automatically shared to the remote machine.
+      </p>
+      <h3 id="File_Settings">File Settings</h3>
+      <p>
+        This page only appears for the properties of a <a href="#Files">file</a>. It contains options for the file's group name, shows the full path to the file (which can't be edited), and has a comment field.
+      </p>
+      <h3 id="Group_Settings">Group Settings</h3>
+      <p>
+        This page only appears for the properties of a <a href="#Groups">group</a>. It contains options for the group name, parent nesting, and a comment.
+      </p>
+      <h3 id="Server_Settings">Server Settings</h3>
+      <p>
+        This page only appears for the properties of a <a href="#Servers">server</a>. It contains options for the server name, its display name, parent nesting, and a comment.
+      </p>
+      <h3 id="Display_Settings">Display Settings</h3>
+      <p>Thumbnail display settings are customizable from this page.</p>
+      <p>
+        The first option is: thumbnail scale. This specifies how many thumbnail units to allocate to
+        the display of a given server.  All servers default to a scale of 1. You can change this to
+        increase the display of important servers. For example, a server could be scaled by 3 or 5
+        making the remote session quite usable in the thumbnail display while still permitting a
+        view of many other servers. This is the only option for servers.
+      </p>
+      <p>
+        There are two additional options for groups: live thumbnail updates and show disconnected
+        thumbnails. The former controls whether or not the thumbnail view shows the actual live
+        connection, continually updated (and usable). The latter controls whether disconnected
+        servers appear in the thumbnail view.
+      </p>
+      <h3>Security Settings</h3>
+      <p>
+        You can specify whether authentication of the remote machine is required before a connection is established.
+      </p>
+    </div>
+    <h2 id="List_Remote_Sessions">List Remote Sessions</h2>
+    <p>RDCMan has limited support for managing remote sessions other than those connected from it. The List Sessions
+    menu item available from the Session and server context menus invokes the feature.</p>
+    <p>Note that the account running RDCMan must have Query Information permissions on
+        the remote server to list the sessions. Furthermore, the remote session must be directly reachable rather than via a gateway server. Disconnect and Logoff
+        permissions must be granted to perform those operations. See <a href="http://msdn.microsoft.com/en-us/library/aa383488(VS.85).aspx">msdn</a> for more information on remote desktop permissions.</p>
+    <h2 id="Command_line">Command Line</h2>
+    <p>By default, RDCMan will open the files that were loaded at the time of the last program shutdown. You can override this
+    by specifying a file (or files) explicitly on the RDCMan command line. Additionally, the following switches are accepted:</p>
+    <ul>
+      <li>/reset - reset the persisted application preferences such as window location and size.</li>
+      <li>/noopen - do not open the previously loaded files, start with a blank environment.</li>
+    </ul>
+    <h2 id="Known_Bugs">Known Bugs</h2>
+    <ul>
+      <li>Using the keyboard to navigate thumbnail view doesn't always behave as expected.</li>
+      <li>Auto-reconnect feature sometimes causes extreme cursor flicker.</li>
+    </ul>
+    <h2 id="Non-Bugs">Non-Bugs</h2>
+    <ul>
+      <li>
+        In order for auto-logon to work (i.e. you specified user name
+        and password), you must enable the Group Policy controlling it. Use the MMC "Group Policy" Snap-in and navigate to "Local Computer Policy/Computer
+        Configuration/Administrative Templates/Windows Components/Terminal
+        Services/Encryption and Security". Double-click "Always prompt client for
+        password upon connection" and click the "Disabled" box.
+      </li>
+      <li>
+        The remote desktop cannot be resized while a server is connected. To resize you must disconnect and reconnect. Note that this is
+        particularly noticeable with Full Screen Mode.
+      </li>
+      <li>
+        The mouse cursor will vanish if the window is given focus when
+        any server is running a screensaver. This appears to be a bug in the remote desktop ActiveX control.
+      </li>
+    </ul>
+    <h2 id="FAQ">FAQ</h2>
+    <ul>
+        <li class="Q">How do I use smartcard credentials to logon?</li>
+        <li class="A">Enable "Redirect smart cards" in the Local Resources tab</li>
+        <li class="Q">I get an error connecting through a gateway such as Error 50331656. Why?</li>
+        <li class="A">Gateways must be specified as FQDN</li>
+    </ul>
+    <h2 id="Acknowledgements">Acknowledgements</h2>
+    <p>
+      Tremendous thank you to David Zazzo for doing the leg work to get RDCMan approved for external distribution! I thank you and I'm sure
+      many others do as well.
+    </p>
+  </body>
+</html>
